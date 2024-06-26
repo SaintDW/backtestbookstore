@@ -1,0 +1,13 @@
+<h1>Books#index</h1>
+
+<ul>
+  <% if @books %>
+    <ul>
+      <li>name : <%= @books.name %></li>
+      <li>description : <%= @books.description %></li>
+      <li>release : <%= @books.release %></li>
+    </ul>
+  <% else %>
+    <p>No books found</p>
+  <% end %>
+</ul>
