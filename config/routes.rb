@@ -1,5 +1,3 @@
 Rails.application.routes.draw do
-  get 'up' => 'rails/health#show', as: :rails_health_check
-
-  get '/books', to: 'books#index'
+  mount V1::Api => '/v1'
 end
