@@ -48,6 +48,51 @@ module V1
       delete ':id' do
         Book.find(params[:id]).destroy
       end
+
+      route_param :id do
+        resource :reviews do
+          desc 'Create Review'
+          params do
+            requires :comment, type: String, desc: 'Review Comment'
+            requires :star, type: Integer, desc: 'Review Star'
+          end
+          post do
+            book = Book.find(params[:id])
+            book.review.create!({
+                                  comment: params[:comment],
+                                  star: params[:star],
+                                  book_id: params[:id]
+                                })
+          end
+        end
+      end
+
+      route_param :book_id do
+        resource :reviews do
+          desc 'Create Review'
+          params do
+            requires :comment, type: String, desc: 'Review Comment'
+            requires :star, type: Integer, desc: 'Review Star'
+          end
+          put ':review_id' do
+            book = Book.find(params[:book_id])
+            book.review.find(params[:review_id]).update!({
+                                                           comment: params[:comment],
+                                                           star: params[:star]
+                                                         })
+          end
+        end
+      end
+
+      route_param :book_id do
+        resource :reviews do
+          desc 'Delete Review'
+          delete ':review_id' do
+            book = Book.find(params[:book_id])
+            book.review.find(params[:review_id]).destroy
+          end
+        end
+      end
     end
   end
 end
