@@ -10,9 +10,6 @@ module V1
       end
 
       desc 'Get by id'
-      params do
-        requires :id, type: Integer, desc: 'Book ID'
-      end
       route_param :id do
         get do
           Book.find(params[:id])
@@ -26,12 +23,30 @@ module V1
         requires :release, type: DateTime, desc: 'Book Release'
       end
       post do
-        user = Book.create({
-                             name: params[:name],
-                             description: params[:description],
-                              release: params[:release]
-                           })
-        present user
+        Book.create({
+                      name: params[:name],
+                      description: params[:description],
+                      release: params[:release]
+                    })
+      end
+
+      desc 'Update Book'
+      params do
+        requires :name, type: String, desc: 'Book Name'
+        requires :description, type: String, desc: 'Book Description'
+        requires :release, type: DateTime, desc: 'Book Release'
+      end
+      put ':id' do
+        Book.find(params[:id]).update({
+                                        name: params[:name],
+                                        description: params[:description],
+                                        release: params[:release]
+                                      })
+      end
+
+      desc 'Delete Book'
+      delete ':id' do
+        Book.find(params[:id]).destroy
       end
     end
   end
