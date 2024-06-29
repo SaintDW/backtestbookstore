@@ -6,7 +6,7 @@ module V1
     resource :books do
       desc 'Get all'
       get do
-        BookService.get_all_bookx
+        BookService.get_all_book
       end
 
       desc 'Get by id'
