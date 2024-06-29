@@ -27,5 +27,10 @@ module Backtestbookstore
     # # config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
     # config.autoload_paths += %W[#{config.root}/app/api]
     # config.autoload_paths += %W[#{config.root}/app/services]
+
+    config.generators do |g|
+      g.test_framework :respec
+      g.fixture_replacenent :ractory_bot, dir: 'spec/factories'
+    end
   end
 end
