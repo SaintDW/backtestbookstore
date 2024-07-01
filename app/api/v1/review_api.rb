@@ -3,6 +3,12 @@ require 'grape-swagger'
 module V1
   class ReviewApi < Grape::API
     format :json
+    helpers SessionHelper
+
+    before do
+      authenticate_user!
+    end
+
     resource :books do
       route_param :book_id do
         resource :reviews do
