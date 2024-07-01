@@ -26,19 +26,21 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-gem 'grape'
-gem 'grape-swagger'
+gem 'grape', '~> 2.1', '>= 2.1.2'
+gem 'grape-swagger', '~> 2.1'
 
-gem 'rspec'
-gem 'rspec-rails'
-gem 'simplecov'
+gem 'rspec', '~> 3.13'
+gem 'rspec-rails', '~> 6.1', '>= 6.1.3'
+gem 'simplecov', '~> 0.22.0'
 
 gem 'annotate'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'devise-jwt', '~> 0.11.0'
 
+gem 'sidekiq', '~> 7.1', '>= 7.1.2'
+
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem 'redis', '>= 4.0.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

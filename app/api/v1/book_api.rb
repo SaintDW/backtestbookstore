@@ -5,9 +5,9 @@ module V1
     format :json
     helpers SessionHelper
 
-    before do
-      authenticate_user!
-    end
+    # before do
+    #   authenticate_user!
+    # end
 
     resource :books do
       desc 'Get all'
