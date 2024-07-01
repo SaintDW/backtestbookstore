@@ -2,6 +2,8 @@ require 'grape-swagger'
 
 module V1
   class BookApi < Grape::API
+    before_action :authenticate_book!
+
     format :json
     resource :books do
       desc 'Get all'
