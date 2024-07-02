@@ -19,5 +19,5 @@
 #
 class Rank < ApplicationRecord
   belongs_to :book
-  has_many :bookrank, dependent: :destroy
+  has_many :book_rank, dependent: :destroy
 end
