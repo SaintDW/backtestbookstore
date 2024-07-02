@@ -12,7 +12,7 @@ module V1
     resource :books do
       desc 'Get all'
       get do
-        BookService.get_all_book
+        BookService.get_all_book.page(params[:page]).per(10)
       end
 
       desc 'Get by id'
