@@ -39,6 +39,8 @@ gem 'devise-jwt', '~> 0.11.0'
 
 gem 'sidekiq', '~> 7.1', '>= 7.1.2'
 
+gem 'jwt'
+
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '>= 4.0.1'
 
@@ -77,6 +79,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'selenium-webdriver'
   gem 'rspec-sidekiq'
+  gem 'selenium-webdriver'
 end

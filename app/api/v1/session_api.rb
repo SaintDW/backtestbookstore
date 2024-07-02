@@ -4,6 +4,13 @@ module V1
   class SessionApi < Grape::API
     format :json
 
+    helpers do
+      def generate_token(user)
+        JWT.encode({ sub: user.id, exp: 24.hours.from_now.to_i }, Rails.application.credentials.devise_jwt_secret_key,
+                   'HS256')
+      end
+    end
+
     resource :sessions do
       desc 'Create a new session (login)'
       params do
@@ -14,10 +21,10 @@ module V1
       post do
         user = User.find_for_database_authentication(email: params[:email])
         if user && user.valid_password?(params[:password])
-
-          { message: 'Logged in successfully', user: }
+          token = generate_token(user)
+          { message: 'Logged in successfully', user:, token: }
         else
-          error!('Unauthorized', 401)
+          error!('Unauthorized SessionApi', 401)
         end
       end
 
