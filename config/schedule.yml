@@ -1,0 +1,21 @@
+# every_minutes:
+#   class: "HelloWorldWorker"
+#   cron: "* * * * *"
+every_midnight:
+  class: "CreateRankWorker"
+  cron: "0 0 * * * Asia/Bangkok"
+every_midnight:
+  class: "ResetViewBookWorker"
+  cron: "0 0 * * * Asia/Bangkok"
+#   queue: schedule
+# sidekiq_unique_garbage_collector:
+#   class: "Schedule::SidekiqUniqueGarbageCollector"
+#   cron: "*/30 * * * * Asia/Bangkok"
+# monthly:
+#   class: "Schedule::MonthlyWorker"
+#   cron: "0 0 1 * *"
+#   queue: schedule
+# every_hour:
+#   class: "Schedule::HourlyWorker"
+#   cron: "0 * * * *"
+#   queue: schedule
