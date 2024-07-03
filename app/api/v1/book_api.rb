@@ -46,6 +46,11 @@ module V1
       delete ':book_id' do
         BookService.delete_book(params[:book_id])
       end
+
+      desc 'Reset View Book'
+      put do
+        BookService.reset_view_book
+      end
     end
   end
 end

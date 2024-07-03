@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_02_105408) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_02_102247) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "book_ranks", force: :cascade do |t|
-    t.bigint "rank_id", null: false
-    t.bigint "book_id", null: false
-    t.integer "view"
-    t.integer "order_id"
-    t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_book_ranks_on_book_id"
-    t.index ["rank_id"], name: "index_book_ranks_on_rank_id"
-  end
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -45,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_105408) do
 
   create_table "ranks", force: :cascade do |t|
     t.integer "order"
+    t.integer "view"
     t.bigint "book_id", null: false
     t.datetime "date"
     t.datetime "created_at", null: false
@@ -73,8 +62,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_105408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "book_ranks", "books"
-  add_foreign_key "book_ranks", "ranks"
   add_foreign_key "ranks", "books"
   add_foreign_key "reviews", "books"
 end

@@ -26,8 +26,11 @@ class BookService
   end
 
   def self.create_book(name, description, release)
-    # Rails.cache.write(Book.first.cache_key_with_version, Book.create({ name:, description:, release: }))
     Book.create({ name:, description:, release: })
+  end
+
+  def self.reset_view_book
+    Book.update_all(view: nil)
   end
 
   def self.update_book(book_id, name, description, release)

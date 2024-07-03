@@ -1,14 +1,13 @@
 class RankService
-  def self.get_rank
-    date_time = Date.current
-    Rank.where(date: date_time).all
+  def self.get_rank(date)
+    Rank.where(date:).all
   end
 
   def self.create_rank
     date_time = Date.current
     book = Book.all.order(view: :desc)
     book.each_with_index do |book, index|
-      book.rank.create!(date: date_time, order: index + 1, book_id: book.id)
+      book.rank.create!(date: date_time, view: book.view, order: index + 1, book_id: book.id)
     end
   end
 

@@ -10,13 +10,16 @@ module V1
     end
 
     resource :ranks do
-      desc 'Get Rank'
-      get do
-        RankService.get_rank
+      desc 'Get Rank By Date'
+      params do
+        requires :date, type: DateTime, desc: 'Date To View Rank'
+      end
+      post do
+        RankService.get_rank(params[:date])
       end
 
       desc 'Create Rank'
-      post do
+      get do
         RankService.create_rank
       end
     end

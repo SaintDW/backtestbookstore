@@ -6,6 +6,5 @@ module V1
     mount V1::ReviewApi
     mount V1::SessionApi
     mount V1::RankApi
-    mount V1::BookRankApi
   end
 end

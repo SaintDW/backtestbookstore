@@ -34,9 +34,7 @@ module V1
             ReviewService.update_review(params[:book_id], params[:review_id], params[:comment], params[:star])
           end
         end
-      end
 
-      route_param :book_id do
         resource :reviews do
           desc 'Delete Review'
           delete ':review_id' do
