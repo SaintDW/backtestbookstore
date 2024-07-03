@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'up' => 'rails/health#show', as: :rails_health_check
-
-  get '/books', to: 'books#index'
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  devise_for :users
+  mount V1::Api => '/v1'
 end

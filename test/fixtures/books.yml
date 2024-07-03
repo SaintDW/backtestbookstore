@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id          :bigint           not null, primary key
+#  description :string
+#  name        :string
+#  release     :datetime
+#  view        :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyString
+  release: 2024-06-27 16:59:42
+
+two:
+  name: MyString
+  description: MyString
+  release: 2024-06-27 16:59:42
