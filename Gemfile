@@ -24,7 +24,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.7'
 
 gem 'grape', '~> 2.1', '>= 2.1.2'
 gem 'grape-swagger', '~> 2.1'
@@ -33,15 +33,17 @@ gem 'rspec', '~> 3.13'
 gem 'rspec-rails', '~> 6.1', '>= 6.1.3'
 gem 'simplecov', '~> 0.22.0'
 
-gem 'annotate'
+gem 'annotate', '~> 3.1', '>= 3.1.1'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'devise-jwt', '~> 0.11.0'
 
 gem 'sidekiq', '~> 7.1', '>= 7.1.2'
 
-gem 'jwt'
+gem 'jwt', '~> 2.8', '>= 2.8.2'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
+
+gem 'sidekiq-cron', '~> 1.9', '>= 1.9.1'
 
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '>= 4.0.1'
